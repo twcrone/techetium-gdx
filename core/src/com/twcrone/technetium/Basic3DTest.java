@@ -9,9 +9,11 @@ import com.badlogic.gdx.graphics.VertexAttributes;
 import com.badlogic.gdx.graphics.g3d.*;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
+import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 
 public class Basic3DTest implements ApplicationListener {
+    public CameraInputController cameraInputController;
     public Environment environment;
     public PerspectiveCamera camera;
     public ModelBatch modelBatch;
@@ -33,6 +35,9 @@ public class Basic3DTest implements ApplicationListener {
         camera.far = 300;
         camera.update();
 
+        cameraInputController = new CameraInputController(camera);
+        Gdx.input.setInputProcessor(cameraInputController);
+
         model = new ModelBuilder().createBox(5, 5, 5,
                 new Material(ColorAttribute.createDiffuse(Color.GREEN)),
                 VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal);
@@ -52,6 +57,8 @@ public class Basic3DTest implements ApplicationListener {
         modelBatch.begin(camera);
         modelBatch.render(instance, environment);
         modelBatch.end();
+
+        cameraInputController.update();
     }
 
     @Override
