@@ -2,6 +2,7 @@ package com.twcrone.technetium.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
+import com.twcrone.technetium.Basic3DTest;
 import com.twcrone.technetium.TechnetiumGame;
 
 public class DesktopLauncher {
@@ -10,6 +11,6 @@ public class DesktopLauncher {
 		config.title = "Technetium";
 		config.width = 800;
 		config.height = 480;
-		new LwjglApplication(new TechnetiumGame(), config);
+		new LwjglApplication(new Basic3DTest(), config);
 	}
 }
