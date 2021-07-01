@@ -38,9 +38,12 @@ public class Basic3DTest implements ApplicationListener {
         cameraInputController = new CameraInputController(camera);
         Gdx.input.setInputProcessor(cameraInputController);
 
-        model = new ModelBuilder().createBox(5, 5, 5,
-                new Material(ColorAttribute.createDiffuse(Color.GREEN)),
-                VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal);
+        model = new ModelBuilder().createSphere(5, 5, 5, 15, 15,
+            new Material(ColorAttribute.createDiffuse(Color.BLUE)),
+            VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal);
+//        model = new ModelBuilder().createBox(5, 5, 5,
+//                new Material(ColorAttribute.createDiffuse(Color.GREEN)),
+//                VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal);
         instance = new ModelInstance(model);
     }
 
