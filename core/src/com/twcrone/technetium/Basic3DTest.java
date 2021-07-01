@@ -13,12 +13,16 @@ import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 
 public class Basic3DTest implements ApplicationListener {
-    public CameraInputController cameraInputController;
-    public Environment environment;
-    public PerspectiveCamera camera;
-    public ModelBatch modelBatch;
-    public Model model;
-    public ModelInstance instance;
+    private PerspectiveCamera camera;
+    private ModelBatch modelBatch;
+    private ModelBuilder modelBuilder;
+    private Model sphere;
+    private ModelInstance modelInstance;
+    private Environment environment;
+
+    private CameraInputController cameraInputController;
+    private Model model;
+    private ModelInstance instance;
 
     @Override
     public void create() {
@@ -28,7 +32,7 @@ public class Basic3DTest implements ApplicationListener {
 
         modelBatch = new ModelBatch();
 
-        camera = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        camera = new PerspectiveCamera(75, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         camera.position.set(10, 10, 10);
         camera.lookAt(0,0,0);
         camera.near = 1;
